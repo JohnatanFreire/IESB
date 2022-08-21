@@ -1,0 +1,131 @@
+menu = 0
+lista = []
+
+def cadastrar():
+
+    agenda = {}
+
+    nome = input("Digite o nome: ")
+    agenda['nome'] = nome
+
+    telefone = input("Digite o telefone: ")
+    agenda['telefone'] = telefone
+
+    email = input("Digite o e-mail: ")
+    agenda['email'] = email
+
+    instagram = input("Digite o Instagram: ")
+    agenda['instagram'] = instagram
+
+    twitter = input("Digite o Twitter: ")
+    agenda['twitter'] = twitter
+
+    print(agenda)
+
+    lista.append(agenda);
+    print(lista)
+
+def buscar():
+
+    buscarNome = input("Digite o nome que deseja buscar: ")
+
+    for i in range(len(lista)):
+        if(buscarNome == lista[i]['nome']):
+            print(lista[i])
+
+def deletar():
+    deletarNome = input("Digite o nome que deseja deletar: ")
+
+    for i in range(len(lista)):
+        if(deletarNome == lista[i]['nome']):
+            lista.pop(i)
+            break
+
+    print(lista)
+
+def alterar():
+    alterarNome = input("Digite o nome que deseja alterar: ")
+
+    print("O que você deseja alterar?")
+    print("Digite o que deseja alterar:")
+    print("nome")
+    print("telefone")
+    print("email")
+    print("instagram")
+    print("twitter")
+    menuAltera = input()
+    
+    print("Digite a nova informação")
+    alteracao = input()
+
+    for i in range(len(lista)):
+        if(alterarNome == lista[i]['nome']):
+            lista[i][menuAltera] = alteracao
+            break
+    
+    print(lista)
+
+def cadastrarMuitos():
+
+    print("Quantos contatos deseja inserir?")
+    quantidade = int(input())
+
+    for i in range(0,quantidade):
+        agenda = {}
+
+        nome = input("Digite o nome: ")
+        agenda['nome'] = nome
+
+        telefone = input("Digite o telefone: ")
+        agenda['telefone'] = telefone
+
+        email = input("Digite o e-mail: ")
+        agenda['email'] = email
+
+        instagram = input("Digite o Instagram: ")
+        agenda['instagram'] = instagram
+
+        twitter = input("Digite o Twitter: ")
+        agenda['twitter'] = twitter
+
+        print(agenda)
+        lista.append(agenda);
+        print(lista)
+
+def relatorio():
+
+    print("Nome      Telefone      Email      Instagram      Twitter")
+    for i in range(len(lista)):
+        print(lista[i])
+
+def salvarVirgula():
+
+    for i in range(len(lista)):
+        print(lista[i]['nome'],",",lista[i]['telefone'],",",lista[i]['email'],",",lista[i]['instagram'],",",lista[i]['twitter'])
+
+while menu != 8:
+    menu = int(input("Escolha uma das opções:\n 1: inserir novo contato \n2: consultar um contato \n3: remover um contato \n4: alterar dados \n5: inserir vários contatos\n6: relatório\n7: salvar informações com virgula\n8: sair\n"))
+
+    if menu == 1:
+        cadastrar()
+
+    if menu == 2:
+        buscar()
+
+    if menu == 3:
+        deletar()
+
+    if menu == 4:
+        alterar()
+
+    if menu == 5:
+        cadastrarMuitos()
+
+    if menu == 6:
+        relatorio()
+
+    if menu == 7:
+        salvarVirgula()
+
+    if menu == 8:
+        print("Obrigado! Volte sempre.\n")
